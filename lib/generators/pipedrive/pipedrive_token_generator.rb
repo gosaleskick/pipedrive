@@ -5,8 +5,6 @@ require 'rails/generators/active_record'
 module Generators
   module Pipedrive
     class PipedriveTokenGenerator < Rails::Generators::Base
-      include Rails::Generators::ResourceHelper
-
       desc "Generates migration to store pipedrive tokens."
       source_root File.expand_path("../templates", __FILE__)
 
