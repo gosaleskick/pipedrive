@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class Create<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_version %>
+class CreatePipedriveTokens < ActiveRecord::Migration[5.2]
   def change
-    create_table :<%= table_name %> do |t|
+    create_table :pipedrive_tokens do |t|
       t.string :access_token
       t.string :refresh_token
       t.datetime :expires_at
