@@ -6,7 +6,7 @@ module Pipedrive
     include Pipedrive::Endpoints::ActivityTypes
     include Pipedrive::Endpoints::Activities
 
-    BASE_API_URL = 'https://saleskick.pipedrive.com/v1'
+    BASE_API_URL = 'https://api.pipedrive.com/v1'
     def initialize(api_token:)
       @api_token = api_token
     end
