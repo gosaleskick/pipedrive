@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require 'pipedrive/endpoints/users'
-require 'pipedrive/endpoints/activity_types'
-require 'pipedrive/endpoints/activities'
-require 'typhoeus'
-require 'oj'
-
 module Pipedrive
   class Client
     include Pipedrive::Endpoints::Users
