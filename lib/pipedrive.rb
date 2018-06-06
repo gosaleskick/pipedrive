@@ -3,11 +3,13 @@
 require "pipedrive/version"
 require 'typhoeus'
 require 'oj'
+require 'base64'
 
 
 require 'pipedrive/endpoints/users'
 require 'pipedrive/endpoints/activity_types'
 require 'pipedrive/endpoints/activities'
+require 'pipedrive/token/refresher'
 require 'pipedrive/client'
 
 module Pipedrive

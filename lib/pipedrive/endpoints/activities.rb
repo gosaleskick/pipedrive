@@ -5,7 +5,7 @@ module Pipedrive
     module Activities
       def activites(params = {})
         params['limit'] ||= 500
-        get_request('/activites', params)
+        get_request('/activities', params)
       end
     end
   end
