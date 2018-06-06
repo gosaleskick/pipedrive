@@ -1,2 +1,0 @@
-class PipedriveToken < ApplicationRecord
-end

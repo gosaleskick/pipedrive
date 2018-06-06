@@ -3,8 +3,9 @@
 require 'spec_helper'
 require 'generator_spec'
 require 'generators/pipedrive/pipedrive_token_generator'
+require 'tmpdir'
 RSpec.describe Pipedrive::Generators::PipedriveTokenGenerator, type: :generator do
-  destination File.expand_path("../../tmp", __FILE__)
+  destination File.expand_path(Dir.tmpdir(), __FILE__)
   arguments %w(PipedriveToken)
 
   before do
