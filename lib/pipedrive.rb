@@ -10,6 +10,7 @@ require 'pipedrive/endpoints/users'
 require 'pipedrive/endpoints/activity_types'
 require 'pipedrive/endpoints/activities'
 require 'pipedrive/token/refresher'
+require 'pipedrive/result'
 require 'pipedrive/client'
 
 module Pipedrive

@@ -11,7 +11,6 @@ module Pipedrive
     def initialize(token:, client_id:, client_secret:)
       @token         = token
       @basic_auth    = Base64.strict_encode64("#{client_id}:#{client_secret}")
-      puts basic_auth
     end
 
     private
@@ -19,15 +18,14 @@ module Pipedrive
     attr_reader :token, :basic_auth
 
     def get_request(endpoint_path, params = {})
-      puts token_refresher.should_refresh?(token)
       refresh_token if token_refresher.should_refresh?(token)
 
       response = Typhoeus::Request.get(
         "#{BASE_MARKET_API_URL}#{endpoint_path}",
         params: params,
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': "Bearer #{token.access_token}"
+          'Content-Type' => 'application/json',
+          'Authorization' => "Bearer #{token.access_token}"
         }
       )
 

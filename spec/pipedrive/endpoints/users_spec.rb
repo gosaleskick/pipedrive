@@ -1,29 +1,16 @@
 require 'spec_helper'
 
-RSpec.describe Pipedrive::Client do
-  describe 'token refreshing' do
-    class TokenAR < Struct.new(:access_token, :refresh_token, :expires_at)
-      def update_attributes(access_token:, refresh_token:, expires_at:)
-        access_token = access_token
-        self.refresh_token = refresh_token
-        self.expires_at = expires_at
+RSpec.describe Pipedrive::Endpoints::Users do
+  let(:token) { OpenStruct.new(access_token: 'access_token', refresh_token: 'refresh_token', expires_at: 1.day.from_now) }
+  let(:client) { Pipedrive::Client.new(token: token, client_id: 'client_id', client_secret: 'client_secret') }
 
-        true
-      end
-    end
+  describe 'GET /users' do
+    it 'returns result object with json response' do
+      VCR.use_cassette('users') do
+        result = client.users
 
-    let(:token) { TokenAR.new('old_token', "refresh_token", 1.day.ago) }
-    let(:client) { Pipedrive::Client.new(token: token, client_id: 'client_id', client_secret: 'client_secret') }
-
-    it 'uses new token to send request' do
-      new_token_attributes = {
-          refresh_token: "new_refresh_token",
-          access_token: "new_access_token",
-          expires_at: Time.parse('Thu, 07 Jun 2018 09:12:51 GMT')
-      }
-
-      VCR.use_cassette('token_refresher', match_requests_on: [:method, :uri, :headers]) do
-        expect(client.users.data).to match(
+        expect(result).to be_a(Pipedrive::Result)
+        expect(result.data).to match(
           {
             "success" => true,
             "data" => [

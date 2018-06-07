@@ -4,7 +4,7 @@ module Pipedrive
   module Endpoints
     module Users
       def users
-        get_request('/users')
+        Pipedrive::Result.new(data: get_request('/users'))
       end
     end
   end
