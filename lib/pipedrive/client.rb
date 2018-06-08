@@ -8,14 +8,13 @@ module Pipedrive
 
     BASE_MARKET_API_URL = 'https://api-proxy.pipedrive.com'
 
-    def initialize(token:, client_id:, client_secret:)
-      @token         = token
-      @basic_auth    = Base64.strict_encode64("#{client_id}:#{client_secret}")
+    def initialize(token:)
+      @token = token
     end
 
     private
 
-    attr_reader :token, :basic_auth
+    attr_reader :token
 
     def get_request(endpoint_path, params = {})
       refresh_token if token_refresher.should_refresh?(token)
@@ -37,7 +36,7 @@ module Pipedrive
     end
 
     def token_refresher
-      @token_refresher ||= Pipedrive::Token::Refresher.new(basic_auth: basic_auth)
+      @token_refresher ||= Pipedrive::Token::Refresher.new
     end
   end
 end

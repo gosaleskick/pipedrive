@@ -13,7 +13,7 @@ RSpec.describe Pipedrive::Client do
     end
 
     let(:token) { TokenAR.new('old_token', "refresh_token", 1.day.ago) }
-    let(:client) { Pipedrive::Client.new(token: token, client_id: 'client_id', client_secret: 'client_secret') }
+    let(:client) { Pipedrive::Client.new(token: token) }
 
     it 'uses new token to send request' do
       new_token_attributes = {

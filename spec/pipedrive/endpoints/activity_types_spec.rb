@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Pipedrive::Endpoints::ActivityTypes do
   let(:token) { OpenStruct.new(access_token: 'access_token', refresh_token: 'refresh_token', expires_at: 1.day.from_now) }
-  let(:client) { Pipedrive::Client.new(token: token, client_id: 'client_id', client_secret: 'client_secret') }
+  let(:client) { Pipedrive::Client.new(token: token) }
 
   describe 'GET /activity_types' do
     it 'returns result object with json response' do

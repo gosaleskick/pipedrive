@@ -6,12 +6,9 @@ module Pipedrive
       class RefreshError < StandardError; end
       REFRESH_TOKEN_URL = 'https://oauth.pipedrive.com/oauth/token'
       SAFE_REQUEST_MARGIN_IN_SECONDS = 10
-      def initialize(basic_auth:)
-        @basic_auth = basic_auth
-      end
 
-      def should_refresh?(token_data)
-        token_data.expires_at <= Time.now.utc - SAFE_REQUEST_MARGIN_IN_SECONDS
+      def should_refresh?(token)
+        token.expires_at <= Time.now.utc - SAFE_REQUEST_MARGIN_IN_SECONDS
       end
 
       def refresh(token)
@@ -33,8 +30,6 @@ module Pipedrive
 
       private
 
-      attr_reader :basic_auth
-
       def refresh_token_request(refresh_token)
         Typhoeus::Request.post(
           REFRESH_TOKEN_URL,
@@ -44,6 +39,10 @@ module Pipedrive
             'Authorization' => "Basic #{basic_auth}"
           }
         )
+      end
+
+      def basic_auth
+        Pipedrive.configuration.basic_auth
       end
     end
   end
