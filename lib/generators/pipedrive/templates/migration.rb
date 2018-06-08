@@ -6,6 +6,8 @@ class Create<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_ve
       t.string :access_token
       t.string :refresh_token
       t.datetime :expires_at
+
+      t.timestamps null: false
     end
   end
 end

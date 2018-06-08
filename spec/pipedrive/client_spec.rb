@@ -4,7 +4,7 @@ RSpec.describe Pipedrive::Client do
   describe 'token refreshing' do
     class TokenAR < Struct.new(:access_token, :refresh_token, :expires_at)
       def update_attributes(access_token:, refresh_token:, expires_at:)
-        access_token = access_token
+        self.access_token = access_token
         self.refresh_token = refresh_token
         self.expires_at = expires_at
 
