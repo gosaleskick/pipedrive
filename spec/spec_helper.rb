@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "pipedrive"
+require 'vcr'
+require 'support/vcr'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

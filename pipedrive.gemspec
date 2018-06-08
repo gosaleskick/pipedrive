@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["DiodonHystrix"]
   spec.email         = ["adam@saleskick.co"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
-  #spec.homepage      = "www.google.com"
+  spec.summary       = "Pipedrive API wrapper gem"
+  spec.homepage      = "https://github.com/gosaleskick/pipedrive"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -35,6 +34,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "generator_spec", "~> 0.9.3"
+  spec.add_development_dependency 'activerecord'
+  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'pry'
   spec.add_runtime_dependency 'typhoeus', '~> 1.3'
   spec.add_runtime_dependency 'oj', '~> 3.6.2'
 end

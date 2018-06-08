@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-proxy.pipedrive.com/activityTypes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer access_token
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 06 Jun 2018 15:15:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - 3b55796f-6ae0-4d8f-80cb-93e6551a140a
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: 9352;'
+      x-xss-protection:
+      - 1; mode=block, 1; mode=block
+      access-control-expose-headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTUlhVAAADV1ETGhE1AwE2QgNWEVlbQFtcC2VOchRAFgtba04QUmQcUQcVC0FYQx8wSEZWETpMC14GXRpnX1FGEUkJTwFRA1JUGgdPVlAPCwdITFMbEwFTAQlTVgZVUQdTBlpTCVsWHlUEVRJUPA==
+      x-frame-options:
+      - SAMEORIGIN
+      access-control-allow-origin:
+      - "*"
+      x-content-type-options:
+      - nosniff, nosniff
+      set-cookie:
+      - pipe-last-active=1528298158543;path=/;domain=.pipedrive.com;expires=0
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '10'
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains; preload
+      X-XSS-Protection:
+      - 1; mode=block, 1; mode=block
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff, nosniff
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      - max-age=15552000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"data":[{"id":1,"order_nr":1,"name":"Call","key_string":"call","icon_key":"call","active_flag":true,"color":null,"is_custom_flag":false,"add_time":"2018-05-29
+        11:59:18","update_time":null},{"id":2,"order_nr":2,"name":"Meeting","key_string":"meeting","icon_key":"meeting","active_flag":true,"color":null,"is_custom_flag":false,"add_time":"2018-05-29
+        11:59:18","update_time":null},{"id":3,"order_nr":3,"name":"Task","key_string":"task","icon_key":"task","active_flag":true,"color":null,"is_custom_flag":false,"add_time":"2018-05-29
+        11:59:18","update_time":null},{"id":4,"order_nr":4,"name":"Deadline","key_string":"deadline","icon_key":"deadline","active_flag":true,"color":null,"is_custom_flag":false,"add_time":"2018-05-29
+        11:59:18","update_time":null},{"id":5,"order_nr":5,"name":"Email","key_string":"email","icon_key":"email","active_flag":true,"color":null,"is_custom_flag":false,"add_time":"2018-05-29
+        11:59:18","update_time":null},{"id":6,"order_nr":6,"name":"Lunch","key_string":"lunch","icon_key":"lunch","active_flag":true,"color":null,"is_custom_flag":false,"add_time":"2018-05-29
+        11:59:18","update_time":null}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api-proxy.pipedrive.com/activityTypes
+  recorded_at: Wed, 06 Jun 2018 15:15:58 GMT
+recorded_with: VCR 4.0.0

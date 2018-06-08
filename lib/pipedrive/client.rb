@@ -1,34 +1,43 @@
 # frozen_string_literal: true
 
-require 'pipedrive/endpoints/users'
-require 'pipedrive/endpoints/activity_types'
-require 'pipedrive/endpoints/activities'
-require 'typhoeus'
-require 'oj'
-
 module Pipedrive
   class Client
     include Pipedrive::Endpoints::Users
     include Pipedrive::Endpoints::ActivityTypes
     include Pipedrive::Endpoints::Activities
 
-    BASE_API_URL = 'https://saleskick.pipedrive.com/v1'
-    def initialize(api_token:)
-      @api_token = api_token
+    BASE_MARKET_API_URL = 'https://api-proxy.pipedrive.com'
+
+    def initialize(token:, client_id:, client_secret:)
+      @token         = token
+      @basic_auth    = Base64.strict_encode64("#{client_id}:#{client_secret}")
     end
 
     private
 
-    attr_reader :api_token
+    attr_reader :token, :basic_auth
 
     def get_request(endpoint_path, params = {})
+      refresh_token if token_refresher.should_refresh?(token)
+
       response = Typhoeus::Request.get(
-        "#{BASE_API_URL}#{endpoint_path}",
-        params: { api_token: api_token }.merge(params),
-        headers: { 'Content-Type': 'application/json' }
+        "#{BASE_MARKET_API_URL}#{endpoint_path}",
+        params: params,
+        headers: {
+          'Content-Type' => 'application/json',
+          'Authorization' => "Bearer #{token.access_token}"
+        }
       )
 
       Oj.load(response.response_body)
+    end
+
+    def refresh_token
+      @token = token_refresher.refresh(token)
+    end
+
+    def token_refresher
+      @token_refresher ||= Pipedrive::Token::Refresher.new(basic_auth: basic_auth)
     end
   end
 end
