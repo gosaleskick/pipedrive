@@ -6,8 +6,11 @@ class Create<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_ve
       t.string :access_token
       t.string :refresh_token
       t.datetime :expires_at
+      t.string :company_domain, null: false
 
       t.timestamps null: false
     end
+
+    add_index :<%= table_name %>, :company_domain
   end
 end
