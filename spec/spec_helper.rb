@@ -13,4 +13,11 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:all) do
+    Pipedrive.configure do |config|
+      config.client_id = 'client_id'
+      config.client_secret = 'client_secret'
+    end
+  end
 end
