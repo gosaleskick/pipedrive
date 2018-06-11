@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Pipedrive::Client do
+RSpec.describe Pipedrive::OAuth::Client do
   describe 'token refreshing' do
     class TokenAR < Struct.new(:access_token, :refresh_token, :expires_at)
       def update_attributes(access_token:, refresh_token:, expires_at:)
@@ -13,7 +13,7 @@ RSpec.describe Pipedrive::Client do
     end
 
     let(:token) { TokenAR.new('old_token', "refresh_token", 1.day.ago) }
-    let(:client) { Pipedrive::Client.new(token: token) }
+    let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
     it 'uses new token to send request' do
       new_token_attributes = {

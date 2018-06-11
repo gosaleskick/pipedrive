@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Pipedrive::Endpoints::Users do
   let(:token) { OpenStruct.new(access_token: 'access_token', refresh_token: 'refresh_token', expires_at: 1.day.from_now) }
-  let(:client) { Pipedrive::Client.new(token: token) }
+  let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
   describe 'GET /users' do
     it 'returns result object with json response' do
