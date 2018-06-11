@@ -1,0 +1,10 @@
+pipeline:
+  test:
+    image: ruby:2.3.7
+    environment:
+      - RAILS_ENV=test
+    commands:
+      - bundle install --path=/drone/bundle
+      - bundle exec rspec --tty
+    volumes:
+      - /home/drone/bundle:/drone/bundle
