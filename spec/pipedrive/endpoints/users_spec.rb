@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe Pipedrive::Endpoints::Users do
+describe Pipedrive::Endpoints::Users do
   let(:token) { OpenStruct.new(access_token: 'access_token', refresh_token: 'refresh_token', expires_at: 1.day.from_now) }
   let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 

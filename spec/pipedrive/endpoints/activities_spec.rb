@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
-require 'pry'
-RSpec.describe Pipedrive::Endpoints::Activities do
+
+describe Pipedrive::Endpoints::Activities do
   let(:token) { OpenStruct.new(access_token: 'access_token', refresh_token: "refresh_token", expires_at: 1.day.from_now) }
   let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
@@ -111,7 +113,7 @@ RSpec.describe Pipedrive::Endpoints::Activities do
 
     it 'returns result object with ability to query more data' do
       VCR.use_cassette('more_activities') do
-        result = client.activities('limit' => 1)
+        result = client.activities(limit: 1)
         more_items_result = result.more_items
 
         expect(result).to be_a(Pipedrive::Result)

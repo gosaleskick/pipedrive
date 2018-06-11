@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe Pipedrive::OAuth::Client do
+describe Pipedrive::OAuth::Client do
   describe 'token refreshing' do
     class TokenAR < Struct.new(:access_token, :refresh_token, :expires_at)
       def update(access_token:, refresh_token:, expires_at:)
