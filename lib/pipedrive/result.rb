@@ -11,9 +11,9 @@ module Pipedrive
     end
 
     def more_items
-      pagination_data = data['additional_data']['pagination']
-      return unless pagination_data['more_items_in_collection']
-      params['start'] = pagination_data['start'] + pagination_data['limit']
+      pagination_data = data[:additional_data][:pagination]
+      return unless pagination_data[:more_items_in_collection]
+      params['start'] = pagination_data[:start] + pagination_data[:limit]
 
       client.public_send(endpoint, params)
     end

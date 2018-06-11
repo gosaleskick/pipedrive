@@ -29,7 +29,7 @@ module Pipedrive
           }
         )
 
-        Oj.load(response.response_body)
+        Oj.load(response.response_body, symbol_keys: true)
       end
 
       def refresh_token

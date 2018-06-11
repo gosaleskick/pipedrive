@@ -14,18 +14,18 @@ module Pipedrive
 
         def refresh(token)
           response = refresh_token_request(token.refresh_token)
-          response_body = Oj.load(response.response_body)
-          raise RefreshError, response_body['message'] unless response_body.fetch('success', true)
+          response_body = Oj.load(response.response_body, symbol_keys: true)
+          raise RefreshError, response_body[:message] unless response_body.fetch('success', true)
 
-          expires_at = Time.parse(response.headers['date']) + response_body['expires_in'].to_i
+          expires_at = Time.parse(response.headers['date']) + response_body[:expires_in].to_i
 
           new_attributes = {
-            refresh_token: response_body['refresh_token'],
-            access_token: response_body['access_token'],
+            refresh_token: response_body[:refresh_token],
+            access_token: response_body[:access_token],
             expires_at: expires_at
           }
 
-          token.update_attributes(new_attributes)
+          token.update(new_attributes)
           token
         end
 
