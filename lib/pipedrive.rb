@@ -8,10 +8,10 @@ require 'base64'
 require 'pipedrive/endpoints/users'
 require 'pipedrive/endpoints/activity_types'
 require 'pipedrive/endpoints/activities'
-require 'pipedrive/token/refresher'
 require 'pipedrive/result'
 require 'pipedrive/configuration'
-require 'pipedrive/client'
+require 'pipedrive/oauth/token/refresher'
+require 'pipedrive/oauth/client'
 
 module Pipedrive
   class << self
