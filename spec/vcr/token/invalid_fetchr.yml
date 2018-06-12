@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://oauth.pipedrive.com/oauth/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=authorization_code&code=invalid_code&redirect_uri=test_redirect_uri
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=
+      Expect:
+      - ''
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 12 Jun 2018 11:12:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '63'
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - 110d440d-babb-4c54-8366-6665fa4087f8
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: ffad;'
+      x-xss-protection:
+      - 1; mode=block
+      Access-Control-Expose-Headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      access-control-allow-origin:
+      - https://oauth.pipedrive.com
+      access-control-allow-credentials:
+      - 'true'
+      content-security-policy:
+      - 'default-src ''self''; connect-src ''self'' *.pipedrive.com www.google-analytics.com
+        rs.fullstory.com; style-src ''self'' oauth.pipedriveassets.com ''sha256-biLFinpqYMtWHmXfkA1BPeCY0/fNt46SAZ+BBk5YUog='';
+        script-src oauth.pipedriveassets.com fullstory.com ''sha256-0+jBA9o5TAmCOuiWUIZzIuVC0nYR9MrJWYLpXR+Jvzk='';
+        frame-ancestors ''none''; media-src ''none''; font-src data: oauth.pipedriveassets.com;
+        img-src ''self'' pipedrive-marketplace-manager-live.s3.amazonaws.com oauth.pipedriveassets.com
+        *.cloudfront.net'
+      x-frame-options:
+      - DENY
+      www-authenticate:
+      - Basic realm="Service"
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTXFBbBAMFU1QTGhE1AwE2QgNWEVlbQFtcCxYiRBJHDQkZZy41NxgcXwUUFl8eQwkPVFgRTlZPUh5TClcLDwEGClYVQwdSEU5GDlECVVQKCwFdBVFVUA9ESFdXXxEDPg==
+      set-cookie:
+      - pipe-last-active=1528801930579;path=/;domain=.pipedrive.com;expires=0
+      Server:
+      - no-name-at-all
+    body:
+      encoding: UTF-8
+      string: '{"success":false,"message":"Invalid client: client is invalid"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://oauth.pipedrive.com/oauth/token
+  recorded_at: Tue, 12 Jun 2018 11:12:10 GMT
+recorded_with: VCR 4.0.0

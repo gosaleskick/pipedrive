@@ -4,6 +4,7 @@ require "bundler/setup"
 require "pipedrive"
 require 'vcr'
 require 'support/vcr'
+require 'support/ar_token'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -21,6 +22,7 @@ RSpec.configure do |config|
     Pipedrive.configure do |config|
       config.client_id = 'client_id'
       config.client_secret = 'client_secret'
+      config.redirect_uri = 'test_redirect_uri'
     end
   end
 end
