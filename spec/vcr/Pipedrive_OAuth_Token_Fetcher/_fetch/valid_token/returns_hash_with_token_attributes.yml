@@ -1,0 +1,149 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://oauth.pipedrive.com/oauth/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=authorization_code&code=valid_code&redirect_uri=test_redirect_uri
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 12 Jun 2018 11:01:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '306'
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - 9268c245-2fa5-4626-bc47-e4a67a5eeef9
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: ffad;'
+      x-xss-protection:
+      - 1; mode=block
+      Access-Control-Expose-Headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      access-control-allow-origin:
+      - https://oauth.pipedrive.com
+      access-control-allow-credentials:
+      - 'true'
+      content-security-policy:
+      - 'default-src ''self''; connect-src ''self'' *.pipedrive.com www.google-analytics.com
+        rs.fullstory.com; style-src ''self'' oauth.pipedriveassets.com ''sha256-biLFinpqYMtWHmXfkA1BPeCY0/fNt46SAZ+BBk5YUog='';
+        script-src oauth.pipedriveassets.com fullstory.com ''sha256-0+jBA9o5TAmCOuiWUIZzIuVC0nYR9MrJWYLpXR+Jvzk='';
+        frame-ancestors ''none''; media-src ''none''; font-src data: oauth.pipedriveassets.com;
+        img-src ''self'' pipedrive-marketplace-manager-live.s3.amazonaws.com oauth.pipedriveassets.com
+        *.cloudfront.net'
+      x-frame-options:
+      - DENY
+      cache-control:
+      - no-store
+      pragma:
+      - no-cache
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTXFBbBAMFU1QTGhE1AwE2QgNWEVlbQFtcCxYiRBJHDQkZZy41NxgcXwUUFl8eQwkPVFgRTlZPUh5RD1IKDQIFClcVQwJRBUBIFAEDVFABClJWVwEGCFNWRh1QUg4VBj8=
+      set-cookie:
+      - pipe-last-active=1528801276311;path=/;domain=.pipedrive.com;expires=0
+      Server:
+      - no-name-at-all
+      X-XSS-Protection:
+      - 1; mode=block
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"access_token","token_type":"Bearer","expires_in":3599,"refresh_token":"refresh_token","scope":"deals:read,activities:read,contacts:read,recents:read,search:read,mail:read,products:read,users:read,base"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://oauth.pipedrive.com/oauth/token
+  recorded_at: Tue, 12 Jun 2018 11:01:16 GMT
+- request:
+    method: get
+    uri: https://api-proxy.pipedrive.com/users/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer access_token
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 12 Jun 2018 11:01:17 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - be8efd10-ba8e-4c6e-9f6e-9db1c4cd95a8
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: ffad;'
+      x-xss-protection:
+      - 1; mode=block, 1; mode=block
+      access-control-expose-headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTUlhVAAADV1ETGhE1AwE2QgNWEVlbQFtcC2VOchRAFgtba04QUmQcRRcEEERtGAsBblFWFkRPUh5SCFIICBgCHVUKUAhRH09VGhVVUAYKUQVUAAMCBAZeUgkOEU4AAg5DB2U=
+      x-frame-options:
+      - SAMEORIGIN
+      access-control-allow-origin:
+      - "*"
+      x-content-type-options:
+      - nosniff, nosniff
+      set-cookie:
+      - pipe-last-active=1528801277088;path=/;domain=.pipedrive.com;expires=0
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '10'
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains; preload
+      X-XSS-Protection:
+      - 1; mode=block, 1; mode=block
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff, nosniff
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      - max-age=15552000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"data":{"id":5203678,"name":"Krzysztof Chris Rybka","default_currency":"USD","locale":"en_US","lang":1,"email":"chris@saleskick.co","phone":null,"activated":true,"last_login":"2018-06-12
+        10:39:54","created":"2018-05-29 20:02:50","modified":"2018-06-12 10:39:54","signup_flow_variation":"google","has_created_company":true,"is_admin":1,"timezone_name":"Europe\/Warsaw","timezone_offset":"+01:00","active_flag":true,"role_id":1,"icon_url":null,"is_you":true,"company_id":3412845,"company_name":"crazy-test-sandbox","company_domain":"crazy-test-sandbox","language":{"language_code":"en","country_code":"US"}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api-proxy.pipedrive.com/users/me
+  recorded_at: Tue, 12 Jun 2018 11:01:17 GMT
+recorded_with: VCR 4.0.0

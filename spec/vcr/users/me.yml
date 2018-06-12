@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-proxy.pipedrive.com/users/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer access_token
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 12 Jun 2018 09:24:06 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - 4f7c0ac1-ff19-476e-974b-beea74691663
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: ffad;'
+      x-xss-protection:
+      - 1; mode=block, 1; mode=block
+      access-control-expose-headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTUlhVAAADV1ETGhE1AwE2QgNWEVlbQFtcC2VOchRAFgtba04QUmQcRRcEEERtGAsBblFWFkRPUh5SCFIICBgCHVUKWAhZH09VGhVUBQILA1MBA1YAAg9XUQBUEU4AAg5DB2U=
+      x-frame-options:
+      - SAMEORIGIN
+      access-control-allow-origin:
+      - "*"
+      x-content-type-options:
+      - nosniff, nosniff
+      set-cookie:
+      - pipe-last-active=1528795446364;path=/;domain=.pipedrive.com;expires=0
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '10'
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains; preload
+      X-XSS-Protection:
+      - 1; mode=block, 1; mode=block
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff, nosniff
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      - max-age=15552000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"data":{"id":5206648,"name":"Matt Kozak","default_currency":"USD","locale":"en_US","lang":1,"email":"matt@saleskick.co","phone":null,"activated":true,"last_login":"2018-06-07
+        08:45:10","created":"2018-05-30 06:09:43","modified":"2018-06-07 08:45:10","signup_flow_variation":null,"has_created_company":false,"is_admin":1,"timezone_name":"Europe\/Warsaw","timezone_offset":"+01:00","active_flag":true,"role_id":1,"icon_url":"https:\/\/d3myhnqlqw2314.cloudfront.net\/profile_120x120_5206648_6d20d82bb568e1a91144032018ca0f5f.jpg","is_you":true,"company_id":3408256,"company_name":"Saleskick-Sandbox","company_domain":"saleskick-sandbox","language":{"language_code":"en","country_code":"US"}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api-proxy.pipedrive.com/users/me
+  recorded_at: Tue, 12 Jun 2018 09:24:06 GMT
+recorded_with: VCR 4.0.0

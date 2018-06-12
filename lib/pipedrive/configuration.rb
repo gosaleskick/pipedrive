@@ -2,11 +2,12 @@
 
 module Pipedrive
   class Configuration
-    attr_accessor :client_id, :client_secret
+    attr_accessor :client_id, :client_secret, :redirect_uri
 
     def initialize
       @client_id = nil
       @client_secret = nil
+      @redirect_uri = nil
     end
 
     def basic_auth

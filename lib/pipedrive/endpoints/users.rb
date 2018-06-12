@@ -6,6 +6,10 @@ module Pipedrive
       def users
         Pipedrive::Result.new(data: get_request('/users'))
       end
+
+      def users_me
+        Pipedrive::Result.new(data: get_request('/users/me'))
+      end
     end
   end
 end

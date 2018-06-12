@@ -4,26 +4,10 @@ require 'spec_helper'
 
 describe Pipedrive::OAuth::Client do
   describe 'token refreshing' do
-    class TokenAR < Struct.new(:access_token, :refresh_token, :expires_at)
-      def update(access_token:, refresh_token:, expires_at:)
-        self.access_token = access_token
-        self.refresh_token = refresh_token
-        self.expires_at = expires_at
-
-        true
-      end
-    end
-
-    let(:token) { TokenAR.new('old_token', "refresh_token", 1.day.ago) }
+    let(:token) { TokenAR.new('old_token', "refresh_token", 1.day.ago, 'saleskick') }
     let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
     it 'uses new token to send request' do
-      new_token_attributes = {
-          refresh_token: "new_refresh_token",
-          access_token: "new_access_token",
-          expires_at: Time.parse('Thu, 07 Jun 2018 09:12:51 GMT')
-      }
-
       VCR.use_cassette('token_refresher', match_requests_on: [:method, :uri, :headers]) do
         expect(client.users.data).to match(
           {

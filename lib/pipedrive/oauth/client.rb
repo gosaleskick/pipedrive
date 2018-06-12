@@ -18,7 +18,7 @@ module Pipedrive
       attr_reader :token
 
       def get_request(endpoint_path, params = {})
-        refresh_token if token_refresher.should_refresh?(token)
+        refresh_token if Pipedrive::OAuth::Token::Refresher.should_refresh?(token)
 
         response = Typhoeus::Request.get(
           "#{BASE_MARKET_API_URL}#{endpoint_path}",
@@ -33,11 +33,7 @@ module Pipedrive
       end
 
       def refresh_token
-        @token = token_refresher.refresh(token)
-      end
-
-      def token_refresher
-        @token_refresher ||= Pipedrive::OAuth::Token::Refresher.new
+        @token = Pipedrive::OAuth::Token::Refresher.new(token).refresh
       end
     end
   end

@@ -10,6 +10,8 @@ require 'pipedrive/endpoints/activity_types'
 require 'pipedrive/endpoints/activities'
 require 'pipedrive/result'
 require 'pipedrive/configuration'
+require 'pipedrive/oauth/token/base'
+require 'pipedrive/oauth/token/fetcher'
 require 'pipedrive/oauth/token/refresher'
 require 'pipedrive/oauth/client'
 
