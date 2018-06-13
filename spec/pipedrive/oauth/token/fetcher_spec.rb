@@ -10,7 +10,7 @@ describe Pipedrive::OAuth::Token::Fetcher do
       let(:code) { 'invalid_code' }
 
       it 'raises an error' do
-        VCR.use_cassette('token/invalid_fetchr') do
+        VCR.use_cassette('token/invalid_fetch') do
           expect { instance.fetch }
             .to raise_error Pipedrive::OAuth::Token::Fetcher::FetchTokenError
         end
@@ -21,6 +21,7 @@ describe Pipedrive::OAuth::Token::Fetcher do
       let(:code) { 'valid_code' }
 
       it 'returns hash with token attributes', :vcr do
+        expect(Pipedrive::OAuth::Token::Refresher).to receive(:should_refresh?).and_return(false)
         expect(instance.fetch).to match(
           access_token: "access_token",
           company_domain: "crazy-test-sandbox",

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://oauth.pipedrive.com/oauth/token
     body:
       encoding: US-ASCII
-      string: grant_type=authorization_code&code=dfsfsd
+      string: grant_type=authorization_code&code=invalid_code&redirect_uri=test_redirect_uri
     headers:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
