@@ -10,7 +10,7 @@ module Pipedrive
         params[:user_id] ||= ALL_USERS_ID
         params[:start] ||= 0
 
-        Pipedrive::Result.new(data: get_request('/activities', params), client: self, endpoint: :activities, params: params)
+        Pipedrive::Result.new(data: get('/activities', params), client: self, endpoint: :activities, params: params)
       end
     end
   end
