@@ -5,6 +5,10 @@ module Pipedrive
     module Webhooks
       ALL_EVENTS = '*'
 
+      def webhooks
+        Pipedrive::Result.new(data: get('/webhooks'))
+      end
+
       def create_webhook(**body)
         raise Pipedrive::Connection::MissingParameter, 'subscription_url is required' unless body[:subscription_url]
 
