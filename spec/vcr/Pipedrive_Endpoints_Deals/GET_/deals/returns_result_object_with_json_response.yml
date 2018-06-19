@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api-proxy.pipedrive.com/deals
+    uri: https://api-proxy.pipedrive.com/deals?start=0&limit=500
     body:
       encoding: US-ASCII
       string: ''
