@@ -9,7 +9,7 @@ module Pipedrive
         params[:start] ||= 0
         params[:limit] ||= MAX_LIMIT
 
-        Pipedrive::Result.new(data: get('/deals'), client: self, endpoint: :deals, params: params)
+        Pipedrive::Result.new(data: get('/deals', params), client: self, endpoint: :deals, params: params)
       end
     end
   end
