@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-proxy.pipedrive.com/webhooks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer access_token
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 18 Jun 2018 15:03:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1760'
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - 67913f22-9eb8-452a-b45f-5cfa73243f83
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: ffad;'
+      x-xss-protection:
+      - 1; mode=block, 1; mode=block
+      access-control-expose-headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTU1RQDgAPU1UTGhE1AwE2QgNWEVlbQFtcCxYiRBJHDQkZcCQyQxdSQA1OFAYeQAMGWVlcCRVBTgBOCEwKCg0CClQAUAlNEVNTAAdDSkEJAwUAB1dUVwdRAgIEA1JETwRRDksHZQ==
+      access-control-allow-origin:
+      - "*"
+      content-security-policy:
+      - frame-ancestors https://*.pipedrive.com
+      set-cookie:
+      - pipe-last-active=1529334205993;path=/;domain=.pipedrive.com;expires=0
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '10'
+      x-content-type-options:
+      - nosniff
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains; preload
+      X-XSS-Protection:
+      - 1; mode=block, 1; mode=block
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      - max-age=15552000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"status":"ok","success":true,"data":[{"id":22679,"company_id":3486667,"owner_id":5323730,"user_id":5323730,"event_action":"*","event_object":"*","subscription_url":"https://webhook.site/4e61fc8f-276c-49cb-954c-f0e62a8815c3","is_active":1,"add_time":"2018-06-18T09:49:21.000Z","remove_time":null,"type":"general","http_auth_user":null,"http_auth_password":null,"additional_data":{},"last_delivery_time":"2018-06-18T14:23:00.395Z","last_http_status":200,"admin_id":5323730},{"id":22733,"company_id":3486667,"owner_id":5323730,"user_id":5323730,"event_action":"updated","event_object":"activity","subscription_url":"https://webhook.site/4e61fc8f-276c-49cb-954c-f0e62a8815c3","is_active":1,"add_time":"2018-06-18T14:22:38.000Z","remove_time":null,"type":"general","http_auth_user":null,"http_auth_password":null,"additional_data":{},"last_delivery_time":"2018-06-18T14:23:00.374Z","last_http_status":200,"admin_id":5323730}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api-proxy.pipedrive.com/webhooks
+  recorded_at: Mon, 18 Jun 2018 15:03:26 GMT
+recorded_with: VCR 4.0.0
