@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-proxy.pipedrive.com/deals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer access_token
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 18 Jun 2018 13:14:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      x-correlation-id:
+      - ae7bccd7-0040-40cc-864b-45a75c795fd0
+      badi:
+      - 'Routing: eu-central-1=>eu-central-1; Version: ffad;'
+      x-xss-protection:
+      - 1; mode=block, 1; mode=block
+      access-control-expose-headers:
+      - X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset
+      x-newrelic-app-data:
+      - PxQOVVFaCwoTUlhVAAADV1ETGhE1AwE2QgNWEVlbQFtcC2VOchRAFgtba04QUmQcVAEADkRtGA8KVVNLPQEGFhJOCEwICAQCA0kJTwFUC1BQGhpQSkEBBQJRV1sFVQIHVQUHBVMEQU5WA1QRXWU=
+      x-frame-options:
+      - SAMEORIGIN
+      access-control-allow-origin:
+      - "*"
+      x-content-type-options:
+      - nosniff, nosniff
+      set-cookie:
+      - pipe-last-active=1529327661886;path=/;domain=.pipedrive.com;expires=0
+      x-ratelimit-limit:
+      - '200'
+      x-ratelimit-remaining:
+      - '199'
+      x-ratelimit-reset:
+      - '10'
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains; preload
+      X-XSS-Protection:
+      - 1; mode=block, 1; mode=block
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff, nosniff
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      - max-age=15552000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"data":[{"id":1,"creator_user_id":{"id":5323730,"name":"Adam
+        Zapa\u015bnik","email":"adam@saleskick.co","has_pic":false,"pic_hash":null,"active_flag":true,"value":5323730},"user_id":{"id":5323730,"name":"Adam
+        Zapa\u015bnik","email":"adam@saleskick.co","has_pic":false,"pic_hash":null,"active_flag":true,"value":5323730},"person_id":{"name":"me","email":[{"value":"","primary":true}],"phone":[{"value":"","primary":true}],"value":7},"org_id":{"name":"saleskick","people_count":0,"owner_id":5323730,"address":null,"cc_email":"adamzapasnik-sandbox@pipedrivemail.com","value":6},"stage_id":3,"title":"importantdeal","value":2222,"currency":"USD","add_time":"2018-06-14
+        11:01:33","update_time":"2018-06-18 13:14:02","stage_change_time":"2018-06-14
+        11:01:43","active":false,"deleted":false,"status":"lost","probability":null,"next_activity_date":null,"next_activity_time":null,"next_activity_id":null,"last_activity_id":null,"last_activity_date":null,"lost_reason":":9","visible_to":"3","close_time":"2018-06-18
+        10:49:35","pipeline_id":1,"won_time":null,"first_won_time":null,"lost_time":"2018-06-18
+        10:49:35","products_count":0,"files_count":0,"notes_count":0,"followers_count":1,"email_messages_count":0,"activities_count":0,"done_activities_count":0,"undone_activities_count":0,"reference_activities_count":0,"participants_count":2,"expected_close_date":null,"last_incoming_mail_time":null,"last_outgoing_mail_time":null,"stage_order_nr":3,"person_name":"me","org_name":"saleskick","next_activity_subject":null,"next_activity_type":null,"next_activity_duration":null,"next_activity_note":null,"formatted_value":"$2,222","weighted_value":2222,"formatted_weighted_value":"$2,222","weighted_value_currency":"USD","rotten_time":null,"owner_name":"Adam
+        Zapa\u015bnik","cc_email":"adamzapasnik-sandbox+deal1@pipedrivemail.com","org_hidden":false,"person_hidden":false}],"additional_data":{"pagination":{"start":0,"limit":100,"more_items_in_collection":false}},"related_objects":{"user":{"5323730":{"id":5323730,"name":"Adam
+        Zapa\u015bnik","email":"adam@saleskick.co","has_pic":false,"pic_hash":null,"active_flag":true}},"organization":{"6":{"id":6,"name":"saleskick","people_count":0,"owner_id":5323730,"address":null,"cc_email":"adamzapasnik-sandbox@pipedrivemail.com"}},"person":{"7":{"id":7,"name":"me","email":[{"value":"","primary":true}],"phone":[{"value":"","primary":true}]}}}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api-proxy.pipedrive.com/deals
+  recorded_at: Mon, 18 Jun 2018 13:14:22 GMT
+recorded_with: VCR 4.0.0

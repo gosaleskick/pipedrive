@@ -6,6 +6,7 @@ module Pipedrive
       include Pipedrive::Endpoints::Users
       include Pipedrive::Endpoints::ActivityTypes
       include Pipedrive::Endpoints::Activities
+      include Pipedrive::Endpoints::Deals
       include Pipedrive::Endpoints::Webhooks
       include Pipedrive::Connection
 
