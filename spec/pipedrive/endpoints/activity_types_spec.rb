@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Pipedrive::Endpoints::ActivityTypes do
-  let(:token) { OpenStruct.new(access_token: 'access_token', refresh_token: 'refresh_token', expires_at: 1.day.from_now) }
+  let(:token) { TokenAR.new }
   let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
   describe 'GET activity_types' do

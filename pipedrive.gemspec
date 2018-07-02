@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_runtime_dependency 'typhoeus', '~> 1.3'
   spec.add_runtime_dependency 'oj', '~> 3.6.2'
+  spec.add_runtime_dependency 'rbnacl-libsodium'
 end

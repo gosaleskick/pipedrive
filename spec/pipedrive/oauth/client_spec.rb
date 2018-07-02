@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Pipedrive::OAuth::Client do
   describe 'token refreshing' do
-    let(:token) { TokenAR.new('old_token', "refresh_token", 1.day.ago, 'saleskick') }
+    let(:token) { TokenAR.new(expires_at: 1.day.ago) }
     let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
     it 'uses new token to send request' do

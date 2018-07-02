@@ -20,14 +20,18 @@ describe Pipedrive::OAuth::Token::Fetcher do
     context 'valid token' do
       let(:code) { 'valid_code' }
 
+      subject { instance.fetch }
+
       it 'returns hash with token attributes', :vcr do
         expect(Pipedrive::OAuth::Token::Refresher).to receive(:should_refresh?).and_return(false)
-        expect(instance.fetch).to match(
-          access_token: "access_token",
+        expect(subject).to match(
           company_domain: "crazy-test-sandbox",
-          expires_at: Time.parse('Tue, 12 Jun 2018 12:01:15 GMT'),
-          refresh_token: "refresh_token"
+          encrypted_access_token: be_a(String),
+          encrypted_refresh_token: be_a(String),
+          expires_at: Time.parse('Tue, 12 Jun 2018 12:01:15 GMT')
         )
+        expect(Pipedrive::Encryptor.decrypt(subject[:encrypted_access_token])).to eq('access_token')
+        expect(Pipedrive::Encryptor.decrypt(subject[:encrypted_refresh_token])).to eq('refresh_token')
       end
     end
   end

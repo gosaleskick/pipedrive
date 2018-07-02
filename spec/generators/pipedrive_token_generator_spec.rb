@@ -29,8 +29,8 @@ RSpec.describe Pipedrive::Generators::PipedriveTokenGenerator, type: :generator 
       class CreatePipedriveTokens < ActiveRecord::Migration[5.2]
         def change
           create_table :pipedrive_tokens do |t|
-            t.string :access_token
-            t.string :refresh_token
+            t.string :encrypted_access_token
+            t.string :encrypted_refresh_token
             t.datetime :expires_at
             t.string :company_domain, null: false
 
