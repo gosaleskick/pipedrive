@@ -30,7 +30,11 @@ module Pipedrive
         attr_reader :token
 
         def response
-          @response ||= post_request('refresh_token', { refresh_token: token.refresh_token })
+          @response ||= post_request('refresh_token', { refresh_token: refresh_token })
+        end
+
+        def refresh_token
+          Pipedrive::Encryptor.decrypt(token.encrypted_refresh_token)
         end
 
         def company_domain

@@ -3,8 +3,8 @@
 class Create<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_version %>
   def change
     create_table :<%= table_name %> do |t|
-      t.string :access_token
-      t.string :refresh_token
+      t.string :encrypted_access_token
+      t.string :encrypted_refresh_token
       t.datetime :expires_at
       t.string :company_domain, null: false
 

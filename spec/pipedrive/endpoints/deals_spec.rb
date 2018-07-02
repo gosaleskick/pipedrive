@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Pipedrive::Endpoints::Deals do
-  let(:token) { OpenStruct.new(access_token: 'access_token', expires_at: 1.day.from_now) }
+  let(:token) { TokenAR.new }
   let(:client) { Pipedrive::OAuth::Client.new(token: token) }
 
   describe 'GET /deals' do

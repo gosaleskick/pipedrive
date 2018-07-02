@@ -29,7 +29,10 @@ module Pipedrive
         end
 
         def company_domain
-          token = OpenStruct.new(access_token: response_body[:access_token], expires_at: expires_at)
+          token = OpenStruct.new(
+            encrypted_access_token: Pipedrive::Encryptor.encrypt(response_body[:access_token]),
+            expires_at: expires_at
+          )
           client = Pipedrive::OAuth::Client.new(token: token)
 
           client.users_me.data[:data][:company_domain]

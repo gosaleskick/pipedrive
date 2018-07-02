@@ -29,11 +29,15 @@ module Pipedrive
         params: params,
         headers: {
           'Content-Type' => 'application/json',
-          'Authorization' => "Bearer #{token.access_token}"
+          'Authorization' => "Bearer #{access_token}"
         }
       ).run
 
       Oj.load(response.response_body, symbol_keys: true, mode: :strict)
+    end
+
+    def access_token
+      Pipedrive::Encryptor.decrypt(token.encrypted_access_token)
     end
 
     def refresh_token
