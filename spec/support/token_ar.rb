@@ -6,20 +6,22 @@ class TokenAR
   # decrypted string: refresh_token
   ENCRYPTED_REFRESH_TOKEN =  "%\x99HT\tMX\x01\xE6S\xCF\x14\xDBL8\xF2\x84\xB2&+\x8B\xDD\x95\xA76\xBC \xF7\xB3T\x04\xF1\xE0\xE5\xC6\xC7\xD8\xAA\x896\xD4h\xC0\r0r\x12\xAA]\xC7S\x95$"
 
-  attr_reader :encrypted_access_token, :encrypted_refresh_token, :expires_at, :company_domain
+  attr_reader :encrypted_access_token, :encrypted_refresh_token, :expires_at, :company_domain, :company_id
 
-  def initialize(encrypted_access_token: nil, encrypted_refresh_token: nil, expires_at: nil, company_domain: nil)
+  def initialize(encrypted_access_token: nil, encrypted_refresh_token: nil, expires_at: nil, company_domain: nil, company_id: nil)
     @encrypted_access_token = encrypted_access_token || ENCRYPTED_ACCESS_TOKEN
     @encrypted_refresh_token = encrypted_refresh_token || ENCRYPTED_REFRESH_TOKEN
     @expires_at = expires_at || Date.parse('2050-01-01').to_time
     @company_domain = company_domain || 'saleskick'
+    @company_id = company_id || 'company_id'
   end
 
-  def update(encrypted_access_token:, encrypted_refresh_token:, expires_at:, company_domain:)
+  def update(encrypted_access_token:, encrypted_refresh_token:, expires_at:, company_domain:, company_id:)
     @encrypted_access_token = encrypted_access_token
     @encrypted_refresh_token = encrypted_refresh_token
     @expires_at = expires_at
     @company_domain = company_domain
+    @company_id = company_id
 
     true
   end

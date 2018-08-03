@@ -28,14 +28,25 @@ module Pipedrive
           Pipedrive.configuration.redirect_uri
         end
 
-        def company_domain
-          token = OpenStruct.new(
-            encrypted_access_token: Pipedrive::Encryptor.encrypt(response_body[:access_token]),
-            expires_at: expires_at
-          )
-          client = Pipedrive::OAuth::Client.new(token: token)
+        def user_data
+          @user_data ||= begin
+            token = OpenStruct.new(
+              encrypted_access_token: Pipedrive::Encryptor.encrypt(response_body[:access_token]),
+              expires_at: expires_at
+            )
 
-          client.users_me.data[:data][:company_domain]
+            Pipedrive::OAuth::Client.new(token: token)
+              .users_me
+              .data[:data]
+          end
+        end
+
+        def company_domain
+          user_data[:company_domain]
+        end
+
+        def company_id
+          user_data[:company_id]
         end
       end
     end

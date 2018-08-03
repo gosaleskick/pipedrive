@@ -11,6 +11,7 @@ module Pipedrive
         def token_attributes
           {
             company_domain: company_domain,
+            company_id: company_id,
             encrypted_access_token: Pipedrive::Encryptor.encrypt(response_body[:access_token]),
             encrypted_refresh_token: Pipedrive::Encryptor.encrypt(response_body[:refresh_token]),
             expires_at: expires_at
