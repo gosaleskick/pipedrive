@@ -40,6 +40,10 @@ module Pipedrive
         def company_domain
           token.company_domain
         end
+
+        def company_id
+          token.company_id
+        end
       end
     end
   end

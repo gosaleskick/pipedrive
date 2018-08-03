@@ -12,6 +12,7 @@ describe Pipedrive::OAuth::Token::Refresher do
           updated_token = described_class.new(token).refresh
 
           expect(updated_token.company_domain).to eq('saleskick')
+          expect(updated_token.company_id).to eq('company_id')
           expect(updated_token.expires_at).to eq(Time.parse('Thu, 07 Jun 2018 09:12:51 GMT'))
           expect(Pipedrive::Encryptor.decrypt(updated_token.encrypted_access_token)).to eq('new_access_token')
           expect(Pipedrive::Encryptor.decrypt(updated_token.encrypted_refresh_token)).to eq('new_refresh_token')
